@@ -39,6 +39,12 @@ $hotels = [
     ],
 
 ];
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -57,11 +63,33 @@ $hotels = [
 
 <body>
 
-    <div class="container p-3">
+    <div class="container p-3 text-center">
+
+        <form action="index.php" method="get" class="mb-3">
+
+            <label for="votes">Filtro per valutazione hotel</label>
+
+            <select name="votes" id="votes">
+                <option value="1">1 stella</option>
+                <option value="2">2 stelle</option>
+                <option value="3">3 stelle</option>
+                <option value="4">4 stelle</option>
+                <option value="5">5 stelle</option>
+            </select>
+
+            <label for="parking">Presenza parcheggio </label>
+
+            <select name="parking" id="parking">
+                <option value="true">Si, è presente un parcheggio</option>
+                <option value="false">No, il parcheggio non è presente</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
         <div class="row row-cols">
 
-            <?php foreach ($hotels as $hotel) : ?>
+            <?php foreach ($hotels as $key => $hotel) : ?>
 
                 <div class="col">
 
@@ -81,17 +109,11 @@ $hotels = [
 
         </div>
 
+        <span><?php echo $valutation ?></span>
+
+        <span><?php echo $parkingLot ?></span>
+
     </div>
-
-    <ul>
-
-
-
-        <li></li>
-
-
-
-    </ul>
 
 
 
